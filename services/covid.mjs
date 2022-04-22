@@ -1,6 +1,13 @@
 // call data from api
 import axios from 'axios';
 
+function* getDataPostOfUser(){
+    // get list users
+    yield axios.get(`https://jsonplaceholder.typicode.com/users`);
+    // get list posts of user
+    yield axios.get(`https://jsonplaceholder.typicode.com/posts`);
+}
+
 const getDataCoronaCountries = async () => {
     const url = `https://api.covid19api.com/summary`;
     const response = await axios.get(url); // return ve 1 promise
@@ -11,4 +18,8 @@ const getDataCoronaCountries = async () => {
         countries = result.Countries;
     }
     return countries;
+}
+export const api = {
+    getDataPostOfUser,
+    getDataCoronaCountriesV2
 }
