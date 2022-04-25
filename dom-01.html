@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM HTML - 01</title>
+    <style type="text/css">
+        .btn {
+            color: red;
+        }
+        .title-color{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="clickMe();" class="btn" id="clickme1" type="button"> click me 1</button>
+    <button class="btn" id="clickme2" type="button"> click me 2</button>
+    <br/><br/>
+    <input type="text" onkeydown="myKeydown();" onkeypress="myKeypress();" onkeyup="myKeyup();" />
+    <br/><br/>
+    <input type="email" onchange="myChange(this);" />
+    <br/><br/>
+    <input type="url" onkeydown="myKeydown2(event);" onchange="myChangeUrl(event);" />
+    <br/><br/>
+    <img width="300" height="300" onmouseover="" onmouseout="" src="images/test.jpg" />
+    <br/><br/>
+    <input type="text" class="form-control"/>
+    <br/><br/>
+    <h1 id="title" class="title">DOM HTML</h1>
+    <button id="click"> click </button>
+
+    <script type="text/javascript">
+
+        
+
+    document.getElementById('click').addEventListener('click',function(){
+        //let title = document.getElementById('title');
+        //title.innerHTML = 'Learning JS';
+        //title.setAttribute('class', 'title-color');
+        //title.className = 'title-color';
+        //title.style.color = 'yellow';
+        //title.style.marginTop = '10px';
+        // tat ca moi thu nam o day
+        // truy cap input
+        // lay gia tri input
+        // kim tra thuat toan
+    });
+    let input = document.getElementsByClassName('form-control');
+    input[0].onchange = function(){
+        console.log(this.value);
+    }
+    // input[0].onkeyup = function(){
+    //     console.log(event.keyCode);
+    // }
+    input[0].addEventListener('keyup',function(){
+        console.log(event.keyCode);
+    });
+
+    function myKeydown2(e) {
+        console.log(e.keyCode);
+    }
+    function myChangeUrl(obj) {
+        console.log(obj);
+    }
+    function myChange(obj) {
+        console.log(obj);
+        console.log(obj.value);
+    }
+    function myKeydown(){
+        console.log("myKeydown");
+    }
+    function myKeypress(){
+        console.log("myKeypress");
+    }
+    function myKeyup(){
+        console.log("myKeyup");
+    }
+    function clickMe(){
+        alert("Click me");
+    }
+    // dom element
+    let button = document.getElementById("clickme1");
+    console.log(button);
+
+    let button2 = document.getElementsByClassName('btn');
+    console.log(button2[1]); // HTMLcollection
+
+    let button3 = document.getElementsByTagName('button');
+    console.log(button3[0]); // // HTMLcollection
+
+    let button4 = document.querySelectorAll('.btn');
+    console.log(button4[1]); //Node list
+
+    let button5 = document.querySelector('.btn'); // tra ve phan tu dau tien khop voi selector css
+    console.log(button5);
+    </script>
+</body>
+</html>
